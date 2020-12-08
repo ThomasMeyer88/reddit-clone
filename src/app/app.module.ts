@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { DatabaseService}  from './services/database.service';
 
 declare var SQL;
 
+@Injectable()
 export class SQLiteMock {
   public create(config: SQLiteDatabaseConfig): Promise<SQLiteObject> {
     //since this is an in memory database we can ignore the config parameters 
