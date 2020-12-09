@@ -1,13 +1,14 @@
-<form>
-    <mat-form-field>
+<div class="col-2"></div>
+<form [formGroup]="stateForm">
+    <mat-form-field class="col-8">
       <input type="text"
              matInput
              placeholder="Search"
-             [matAutocomplete]="autoGroup">
+             formControlName="stateGroup">
         <mat-autocomplete #autoGroup="matAutocomplete">
-            <!-- <mat-option *ngFor="let name of group.names" [value]="name">
-              {{name}}
-            </mat-option> -->
+            <mat-option [value]="">
+                Test
+            </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-</form>
+  </form>
