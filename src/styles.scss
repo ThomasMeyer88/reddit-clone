@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+
+$edge-color: #edeff1;
+$default-BG-color: #ffffff;
+
+@mixin thinBottomBorder($color) {
+    border-bottom: 1px solid $color;
+}
+
+@mixin noPaddingNoMargin {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    @include noPaddingNoMargin();
+}
+
+app-header {
+    @include thinBottomBorder($edge-color);
+    width: 100%;
+    float: left;
+    height: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.row {
+    float: left;
+}
+.col-1 {
+    width: 1/12;
+}
+.col-2 {
+    width: 2/12;
+}
+.col-3 {
+    width: 3/12;
+}
+.col-4 {
+    width: 4/12;
+}
+.col-5 {
+    width: 5/12;
+}
+.col-6 {
+    width: 6/12;
+}
+.col-7 {
+    width: 7/12;
+}
+.col-8 {
+    width: 8/12;
+}
+.col-9 {
+    width: 9/12;
+}
+.col-10 {
+    width: 10/12;
+}
+.col-11 {
+    width: 11/12;
+}
+.col-12 {
+    width: 12/12;
+}

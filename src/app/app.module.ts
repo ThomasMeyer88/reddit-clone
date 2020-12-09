@@ -17,6 +17,10 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
 import { DatabaseService}  from './services/database.service';
 
+//modules
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
+
 
 declare var SQL;
 
@@ -87,7 +91,8 @@ export class SQLiteObject{
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatAutocompleteModule
   ],
   providers: [
         // SQLite,
