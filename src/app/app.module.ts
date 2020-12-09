@@ -19,6 +19,8 @@ import { DatabaseService}  from './services/database.service';
 
 //modules
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 
 
@@ -92,7 +94,8 @@ export class SQLiteObject{
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatFormFieldModule
   ],
   providers: [
         // SQLite,

@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 $edge-color: #edeff1;
-$default-BG-color: #ffffff;
+$background-color-alt: #ffffff;
+$background-color: #DAE0E6;
 
 @mixin thinBottomBorder($color) {
     border-bottom: 1px solid $color;
@@ -14,13 +15,15 @@ $default-BG-color: #ffffff;
 
 body {
     @include noPaddingNoMargin();
+    background-color: $background-color;
 }
 
 app-header {
     @include thinBottomBorder($edge-color);
+    background-color: $background-color-alt;
     width: 100%;
     float: left;
-    height: 1.5rem;
+    height: 2rem;
     padding: 0;
     margin: 0;
 }
