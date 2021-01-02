@@ -23,6 +23,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 
@@ -103,7 +105,8 @@ export class SQLiteObject{
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [
         // SQLite,
