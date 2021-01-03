@@ -23,9 +23,20 @@ app-header {
     background-color: $background-color-alt;
     width: 100%;
     float: left;
-    height: 2rem;
-    padding: 0;
+    height: 2.4rem;
+    padding: .25rem;
     margin: 0;
+}
+
+app-header button {
+    width: 120px;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+app-header div {
+    height: 2.4rem;
+    padding: .25rem;
 }
 
 .row {
@@ -38,32 +49,32 @@ app-header {
     width: (2/12)*100%;
 }
 .col-3 {
-    width: 3/12;
+    width: (3/12)*100%;
 }
 .col-4 {
-    width: 4/12;
+    width: (4/12)*100%;
 }
 .col-5 {
-    width: 5/12;
+    width: (5/12)*100%;
 }
 .col-6 {
-    width: 6/12;
+    width: (6/12)*100%;
 }
 .col-7 {
-    width: 7/12;
+    width: (7/12)*100%;
 }
 .col-8 {
-    width: 8/12;
+    width: (8/12)*100%;
 }
 .col-9 {
-    width: 9/12;
+    width: (9/12)*100%;
 }
 .col-10 {
-    width: 10/12;
+    width: (10/12)*100%;
 }
 .col-11 {
-    width: 11/12;
+    width: (11/12)*100%;
 }
 .col-12 {
-    width: 12/12;
+    width: (12/12)*100%;
 }
