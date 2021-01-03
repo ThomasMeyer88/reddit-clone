@@ -24,6 +24,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -95,7 +96,8 @@ export class SQLiteObject{
     HeaderComponent,
     PostListComponent,
     CreatePostComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

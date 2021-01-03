@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +8,14 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(
+    private router: Router) { }
 
-  stateForm: FormGroup = this._formBuilder.group({
-    stateGroup: '',
-  });
-  
-  ngOnInit(): void {
+    ngOnInit(): void {
+  }
+
+  register() {
+    this.router.navigate(['/createUser']);
   }
 
 }
