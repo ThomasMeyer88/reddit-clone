@@ -1,1 +1,15 @@
-CREATE USER
+<form [formGroup]="createUser" (ngSubmit)="onSubmit()">  
+    <label>
+      E-Mail:
+      <input type="text" formControlName="email" required>
+    </label> 
+    <label>
+      Username:
+      <input type="text" formControlName="username" required>
+    </label>
+    <label>
+      Password:
+      <input type="text" formControlName="password" required>
+    </label>
+    <button type="submit" [disabled]="!createUser.valid">Submit</button>
+</form>
