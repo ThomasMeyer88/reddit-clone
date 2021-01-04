@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CreateUserComponent } from '../create-user/create-user.component';
+
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-header',
@@ -9,13 +13,21 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private router: Router) { }
+    private router: Router,
+    public dialog: MatDialog) { }
 
     ngOnInit(): void {
   }
 
-  register() {
-    this.router.navigate(['/createUser']);
+  openCreateUser(): void {
+    const dialogRef = this.dialog.open(CreateUserComponent, {
+      width: '60%',
+      data: { }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
 }
