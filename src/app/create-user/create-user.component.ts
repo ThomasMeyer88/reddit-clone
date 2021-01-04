@@ -9,9 +9,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class CreateUserComponent implements OnInit {
 
   createUser = new FormGroup({
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required)
   });
 
   constructor() { }
@@ -22,6 +23,10 @@ export class CreateUserComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.createUser.value);
+  }
+
+  passwordsMatch() {
+    return this.createUser.value.password === this.createUser.value.confirmPassword;
   }
 
 }

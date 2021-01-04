@@ -5,11 +5,15 @@
     </label> 
     <label>
       Username:
-      <input type="text" formControlName="username" required>
+      <input type="text" formControlName="username" required minlength="10" maxlength="15">
     </label>
     <label>
       Password:
-      <input type="text" formControlName="password" required>
+      <input type="password" formControlName="password" required minlength="10">
     </label>
-    <button type="submit" [disabled]="!createUser.valid">Submit</button>
+    <label>
+      Confirm Password:
+      <input type="password" formControlName="confirmPassword" required minlength="10">
+    </label>
+    <button type="submit" [disabled]="!createUser.valid || !passwordsMatch()">Submit</button>
 </form>
