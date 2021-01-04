@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-user',
@@ -15,7 +16,9 @@ export class CreateUserComponent implements OnInit {
     confirmPassword: new FormControl('', Validators.required)
   });
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<CreateUserComponent>
+    ) {}
 
   ngOnInit(): void {
   }
@@ -23,6 +26,7 @@ export class CreateUserComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.createUser.value);
+    this.dialogRef.close();
   }
 
   passwordsMatch() {
