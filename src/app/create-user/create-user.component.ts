@@ -18,7 +18,7 @@ export class CreateUserComponent implements OnInit {
   createUser = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required, Validators.pattern('((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})')]),
     confirmPassword: new FormControl('', Validators.required)
   });
 

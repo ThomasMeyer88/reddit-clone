@@ -19,9 +19,12 @@
     </mat-form-field>
     <mat-form-field class="col-12">
       <mat-label>Password</mat-label>
-      <input type="password" matInput formControlName="password" required minlength="10" maxlength="20">
+      <input type="password" matInput formControlName="password" required minlength="8" maxlength="30">
+      <mat-error *ngIf="!createUser.controls.password.valid" class="col-12">
+          Password must be 8-30 character, contain at least 1 capital letter, 1 number, and 1 lower case letter.
+      </mat-error>
     </mat-form-field>
-    <mat-form-field class="col-12">
+    <mat-form-field class="col-12 mt-7">
       <mat-label>Confirm Password</mat-label>
       <input type="password" matInput formControlName="confirmPassword" required minlength="10" maxlength="20">
       <mat-error *ngIf="!passwordsMatch() && createUser.controls.password.valid">Passwords do no match!</mat-error>
