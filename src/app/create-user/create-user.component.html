@@ -1,3 +1,6 @@
+<div *ngIf="error">
+  {{errorMessage}}
+</div>
 <form [formGroup]="createUser" (ngSubmit)="onSubmit()">  
     <label>
       E-Mail:

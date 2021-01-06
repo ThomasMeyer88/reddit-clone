@@ -2,6 +2,7 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { User } from '../models/user';
+import { CustomResponse } from '../models/customResponse';
 import { HttpClientService } from '../services/httpclient.service';
 
 @Component({
@@ -10,6 +11,9 @@ import { HttpClientService } from '../services/httpclient.service';
   styleUrls: ['./create-user.component.scss']
 })
 export class CreateUserComponent implements OnInit {
+
+  error: Boolean = false;
+  errorMessage: string;
 
   createUser = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -26,16 +30,20 @@ export class CreateUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  async onSubmit() {
     let user: User = {  userName: this.createUser.value.username,
                         email: this.createUser.value.email,
                         password: this.createUser.value.password,
                         id: null
                       };
-    this.ApiService.createEmployee(user).toPromise().then(x => {
-      console.log(x);
+    await this.ApiService.createEmployee(user).toPromise().then((x) => {
+      if (x.error) {
+        this.error = x.error;
+        this.errorMessage = x.message;
+      } else {
+        this.dialogRef.close();
+      }
     });
-    this.dialogRef.close();
   }
 
   passwordsMatch() {
