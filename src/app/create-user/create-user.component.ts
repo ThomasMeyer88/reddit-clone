@@ -1,6 +1,8 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { User } from '../models/user';
+import { HttpClientService } from '../services/httpclient.service';
 
 @Component({
   selector: 'app-create-user',
@@ -17,7 +19,8 @@ export class CreateUserComponent implements OnInit {
   });
 
   constructor(
-    public dialogRef: MatDialogRef<CreateUserComponent>
+    public dialogRef: MatDialogRef<CreateUserComponent>,
+    public ApiService: HttpClientService
     ) {}
 
   ngOnInit(): void {
@@ -26,6 +29,14 @@ export class CreateUserComponent implements OnInit {
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.createUser.value);
+    let user: User = {  userName: this.createUser.value.username,
+                        email: this.createUser.value.email,
+                        password: this.createUser.value.password,
+                        id: null
+                      };
+    this.ApiService.createEmployee(user).toPromise().then(x => {
+      console.log(x);
+    });
     this.dialogRef.close();
   }
 

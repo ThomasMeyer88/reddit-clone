@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { ViewPostComponent } from './view-post/view-post.component';
+import { HttpClientService } from './services/httpclient.service';
 
 //sqlite
 import { SQLite, SQLiteDatabaseConfig} from '@ionic-native/sqlite/ngx';
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -109,12 +111,14 @@ export class SQLiteObject{
     MatInputModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [
         // SQLite,
         {provide: SQLite, useClass: SQLiteMock},
-        SQLitePorter
+        SQLitePorter,
+        HttpClientService
   ],
   bootstrap: [AppComponent]
 })
