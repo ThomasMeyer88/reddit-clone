@@ -15,8 +15,6 @@ import { ViewPostComponent } from './view-post/view-post.component';
 import { SQLite, SQLiteDatabaseConfig} from '@ionic-native/sqlite/ngx';
 import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
 
-import { DatabaseService}  from './services/database.service';
-
 //modules
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -116,7 +114,6 @@ export class SQLiteObject{
   providers: [
         // SQLite,
         {provide: SQLite, useClass: SQLiteMock},
-        DatabaseService,
         SQLitePorter
   ],
   bootstrap: [AppComponent]
