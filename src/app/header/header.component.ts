@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   openCreateUser(): void {
     const dialogRef = this.dialog.open(CreateUserComponent, {
-      width: '60%',
+      width: '30%',
       data: { }
     });
 
