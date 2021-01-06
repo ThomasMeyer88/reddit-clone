@@ -27,8 +27,6 @@ export class CreateUserComponent implements OnInit {
   }
 
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.createUser.value);
     let user: User = {  userName: this.createUser.value.username,
                         email: this.createUser.value.email,
                         password: this.createUser.value.password,

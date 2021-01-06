@@ -10,7 +10,10 @@ import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { ViewPostComponent } from './view-post/view-post.component';
+
+//services
 import { HttpClientService } from './services/httpclient.service';
+import { AuthenticationService } from './services/authentication.service';
 
 //sqlite
 import { SQLite, SQLiteDatabaseConfig} from '@ionic-native/sqlite/ngx';
@@ -118,7 +121,8 @@ export class SQLiteObject{
         // SQLite,
         {provide: SQLite, useClass: SQLiteMock},
         SQLitePorter,
-        HttpClientService
+        HttpClientService,
+        AuthenticationService
   ],
   bootstrap: [AppComponent]
 })
