@@ -14,6 +14,7 @@ import { ViewPostComponent } from './view-post/view-post.component';
 //services
 import { HttpClientService } from './services/httpclient.service';
 import { AuthenticationService } from './services/authentication.service';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 //sqlite
 import { SQLite, SQLiteDatabaseConfig} from '@ionic-native/sqlite/ngx';
@@ -28,7 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -122,7 +123,10 @@ export class SQLiteObject{
         {provide: SQLite, useClass: SQLiteMock},
         SQLitePorter,
         HttpClientService,
-        AuthenticationService
+        AuthenticationService,
+        {  
+          provide:HTTP_INTERCEPTORS, useClass:HttpInterceptorService, multi:true 
+        }
   ],
   bootstrap: [AppComponent]
 })

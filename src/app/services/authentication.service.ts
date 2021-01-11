@@ -25,6 +25,8 @@ export class AuthenticationService {
       (x: User) => {
         if (x != null && x.userName != null) {
           sessionStorage.setItem('username', x.userName);
+          let authString = 'Basic ' + btoa(username + ':' + password);
+          sessionStorage.setItem('basicauth', authString);
           return x;
         }
       }
