@@ -26,7 +26,7 @@
     </mat-form-field>
     <mat-form-field class="col-12 mt-7">
       <mat-label>Confirm Password</mat-label>
-      <input type="password" matInput formControlName="confirmPassword" required minlength="10" maxlength="20">
+      <input type="password" matInput formControlName="confirmPassword" required minlength="8" maxlength="30">
       <mat-error *ngIf="!passwordsMatch() && createUser.controls.password.valid">Passwords do no match!</mat-error>
     </mat-form-field>
 

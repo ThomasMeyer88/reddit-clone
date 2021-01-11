@@ -5,6 +5,8 @@ import { Injectable, ApplicationRef } from '@angular/core';
 })
 export class AuthenticationService {
 
+  // headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+
   constructor(
     private apRef: ApplicationRef
   ) { }
