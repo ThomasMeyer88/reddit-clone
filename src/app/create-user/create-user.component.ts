@@ -36,10 +36,10 @@ export class CreateUserComponent implements OnInit {
                         password: this.createUser.value.password,
                         id: null
                       };
-    await this.ApiService.createEmployee(user).toPromise().then((x) => {
-      if (x.error) {
-        this.error = x.error;
-        this.errorMessage = x.message;
+    await this.ApiService.createEmployee(user).toPromise().then((res: CustomResponse) => {
+      if (res.error) {
+        this.error = res.error;
+        this.errorMessage = res.message;
       } else {
         this.dialogRef.close();
       }
