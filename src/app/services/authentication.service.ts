@@ -1,15 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ApplicationRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+  constructor(
+    private apRef: ApplicationRef
+  ) { }
 
   authenticate(username, password) {
     if (username === "javainuse" && password === "password") {
-      sessionStorage.setItem('username', username)
+      sessionStorage.setItem('username', username);
       return true;
     } else {
       return false;
@@ -17,12 +19,16 @@ export class AuthenticationService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('username')
-    console.log(!(user === null))
-    return !(user === null)
+    let user = sessionStorage.getItem('username');
+    return !(user === null);
+  }
+
+  getUser() {
+    return sessionStorage.getItem('username');
   }
 
   logOut() {
-    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('username');
+    this.apRef.tick();
   }
 }

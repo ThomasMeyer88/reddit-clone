@@ -1,5 +1,6 @@
 <div class="col-8 row">
     
 </div>
-<button mat-raised-button (click)="openLogin()">Log In</button>
+<button mat-raised-button (click)="openLogin()" *ngIf="!loginService.isUserLoggedIn()">Log In</button>
+<button mat-raised-button color="danger" (click)="loginService.logOut()" *ngIf="loginService.isUserLoggedIn()">Log Out</button>
 <button mat-raised-button color="primary" (click)="openCreateUser()">Register</button>

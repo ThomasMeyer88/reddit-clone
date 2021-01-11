@@ -13,8 +13,9 @@ export class UserLoginComponent implements OnInit {
   password = ''
   invalidLogin = false
 
-  constructor(private router: Router,
-    private loginservice: AuthenticationService) { }
+  constructor(
+    private router: Router,
+    private loginservice: AuthenticationService){}
 
   ngOnInit() {
   }
@@ -22,9 +23,9 @@ export class UserLoginComponent implements OnInit {
   checkLogin() {
     if (this.loginservice.authenticate(this.username, this.password)
     ) {
-      this.router.navigate([''])
-      this.invalidLogin = false
+      this.router.navigate(['']);
+      this.invalidLogin = false;
     } else
-      this.invalidLogin = true
+      this.invalidLogin = true;
   }
 }
