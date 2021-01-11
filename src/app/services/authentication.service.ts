@@ -1,4 +1,7 @@
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable, ApplicationRef } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +11,24 @@ export class AuthenticationService {
   // headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
 
   constructor(
-    private apRef: ApplicationRef
+    private apRef: ApplicationRef,
+    private httpClient: HttpClient
   ) { }
 
+  username = 'javainuse';
+  password = 'password';
+
   authenticate(username, password) {
-    if (username === "javainuse" && password === "password") {
-      sessionStorage.setItem('username', username);
-      return true;
-    } else {
-      return false;
-    }
+    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
+    console.log(username, password);
+    return this.httpClient.get<User>('http://localhost:8080/user/validateLogin',{headers}).toPromise().then(
+      (x: User) => {
+        if (x != null && x.userName != null) {
+          sessionStorage.setItem('username', x.userName);
+          return x;
+        }
+      }
+    );
   }
 
   isUserLoggedIn() {
