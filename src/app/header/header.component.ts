@@ -30,4 +30,8 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  openLogin(): void {
+    this.router.navigateByUrl('/login');
+  }
+
 }
