@@ -4,6 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialo
 import { User } from '../models/user';
 import { CustomResponse } from '../models/customResponse';
 import { HttpClientService } from '../services/httpclient.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-user',
@@ -43,7 +44,10 @@ export class CreateUserComponent implements OnInit {
       } else {
         this.dialogRef.close();
       }
-    });
+    }).catch((e: HttpErrorResponse) => {
+      this.error = true;
+      this.errorMessage = e.message;
+    })
   }
 
   passwordsMatch() {
