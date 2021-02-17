@@ -1,5 +1,4 @@
 import { User } from './user';
-import { Post } from './post';
 import { Vote } from './vote';
 import { Time } from '@angular/common';
 
