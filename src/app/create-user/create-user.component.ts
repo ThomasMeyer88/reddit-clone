@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialogRef} from '@angular/material/dialog';
 import { User } from '../models/user';
 import { CustomResponse } from '../models/customResponse';
 import { HttpClientService } from '../services/httpclient.service';
